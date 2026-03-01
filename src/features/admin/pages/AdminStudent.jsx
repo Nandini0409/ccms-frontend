@@ -8,9 +8,6 @@ function AdminStudent() {
   const {
     create,
     loading: creating,
-    tempPassword,
-    copyPassword,
-    clearTempPassword
   } = useCreateStudent(() => {
     refresh()
     setShowForm(false)
@@ -45,39 +42,6 @@ function AdminStudent() {
           {showForm ? "Cancel" : "Add Student"}
         </button>
       </div>
-
-      {tempPassword && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-sm space-y-4">
-            <h3 className="text-lg font-semibold">Temporary Password</h3>
-
-            <div className="bg-slate-100 rounded px-3 py-2 font-mono text-center">
-              {tempPassword}
-            </div>
-
-            <div className="flex gap-2">
-              <button
-                onClick={copyPassword}
-                className="flex-1 px-3 py-2 rounded-md bg-[var(--primary)] text-white hover:opacity-90"
-              >
-                Copy
-              </button>
-
-              <button
-                onClick={clearTempPassword}
-                className="flex-1 px-3 py-2 rounded-md border"
-              >
-                Close
-              </button>
-            </div>
-
-            <p className="text-xs text-slate-500">
-              This is a one-time password. It will not be shown again. Ask the student to change it after login.
-            </p>
-
-          </div>
-        </div>
-      )}
 
       {showForm && (
         <form onSubmit={handleAddStudent} className="bg-white border rounded-lg p-4 space-y-4">

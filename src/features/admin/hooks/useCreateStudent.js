@@ -4,7 +4,6 @@ import toast from "react-hot-toast"
 
 export function useCreateStudent(onSuccess) {
   const [loading, setLoading] = useState(false)
-  const [tempPassword, setTempPassword] = useState(null)
 
   async function create(form) {
     try {
@@ -15,8 +14,7 @@ export function useCreateStudent(onSuccess) {
         email: form.email.trim().toLowerCase(),
         phone: form.phone.trim() || null,
       })
-      setTempPassword(res.data.detail.temporary_password)
-      toast.success("Student created. Copy the temporary password.")
+      toast.success("Student created.")
       onSuccess?.()
     } catch (err) {
       toast.error(err.response?.data?.message || "Failed to add student")
@@ -26,24 +24,9 @@ export function useCreateStudent(onSuccess) {
     }
   }
 
-  async function copyPassword() {
-    try {
-      await navigator.clipboard.writeText(tempPassword)
-      toast.success("Password copied")
-    } catch {
-      toast.error("Failed to copy password")
-    }
-  }
-
-  function clearTempPassword() {
-    setTempPassword(null)
-  }
 
   return {
     create,
     loading,
-    tempPassword,
-    copyPassword,
-    clearTempPassword
   }
 }

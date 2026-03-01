@@ -8,9 +8,6 @@ function AdminTeacher() {
   const {
     create,
     loading: creating,
-    tempPassword,
-    copyPassword,
-    clearTempPassword
   } = useCreateTeacher(() => {
     refresh()
     setShowForm(false)
@@ -45,38 +42,6 @@ function AdminTeacher() {
           {showForm ? "Cancel" : "Add Teacher"}
         </button>
       </div>
-
-      {tempPassword && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-sm space-y-4">
-            <h3 className="text-lg font-semibold">Temporary Password</h3>
-
-            <div className="bg-slate-100 rounded px-3 py-2 font-mono text-center">
-              {tempPassword}
-            </div>
-
-            <div className="flex gap-2">
-              <button
-                onClick={copyPassword}
-                className="flex-1 px-3 py-2 rounded-md bg-[var(--primary)] text-white hover:opacity-90"
-              >
-                Copy
-              </button>
-
-              <button
-                onClick={clearTempPassword}
-                className="flex-1 px-3 py-2 rounded-md border"
-              >
-                Close
-              </button>
-            </div>
-
-            <p className="text-xs text-slate-500">
-              This is a one-time password. It will not be shown again. Ask the teacher to change it after login.
-            </p>
-          </div>
-        </div>
-      )}
 
       {showForm && (
         <form onSubmit={handleAddTeacher} className="bg-white border rounded-lg p-4 space-y-4">

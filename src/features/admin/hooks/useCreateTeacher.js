@@ -16,8 +16,6 @@ export function useCreateTeacher(onSuccess) {
         phone: form.phone.trim() || null,
       })
 
-      setTempPassword(res.data.detail.temporary_password)
-
       toast.success("Teacher added successfully")
       onSuccess?.()
     } catch (err) {
@@ -28,24 +26,8 @@ export function useCreateTeacher(onSuccess) {
     }
   }
 
-  async function copyPassword() {
-    try {
-      await navigator.clipboard.writeText(tempPassword)
-      toast.success("Password copied")
-    } catch {
-      toast.error("Failed to copy password")
-    }
-  }
-
-  function clearTempPassword() {
-    setTempPassword(null)
-  }
-
   return {
     create,
     loading,
-    tempPassword,
-    copyPassword,
-    clearTempPassword
   }
 }
