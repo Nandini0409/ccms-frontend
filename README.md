@@ -37,6 +37,8 @@ cp .env.example .env
 
 ## How to run locally
 
+```bash
 git clone https://github.com/Nandini0409/ccms-frontend
 npm install
 npm run dev
+```
