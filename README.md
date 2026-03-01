@@ -1,9 +1,9 @@
 # Coaching Center Management System – Frontend
+[Live Demo](https://ccms-navy.vercel.app)
 
 Frontend for an internal management system built for coaching centers to manage daily operations.  
 The app uses a **role-based system** where Admin, Teacher, and Student each have their own dashboards to perform specific actions.
 
----
 
 ## Features
 
@@ -12,14 +12,12 @@ The app uses a **role-based system** where Admin, Teacher, and Student each have
 - Teacher dashboard for attendance-related actions  
 - Student dashboard to view personal info, batches, and attendance  
 
----
 
 ## Tech Stack
 
 - React  
 - Tailwind CSS  
 
----
 
 ## Environment Variables
 
@@ -33,7 +31,6 @@ cp .env.example .env
 
 2. Add your env values
 
----
 
 ## How to run locally
 
